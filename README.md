@@ -46,3 +46,10 @@ nest g mo messages
 # Create a new controller
 nest g co messages
 ```
+
+### Adding validation rules
+
+```bash
+# Adding validation lib
+npm install class-validator class-transformer
+```
