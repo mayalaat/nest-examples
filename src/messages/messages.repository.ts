@@ -1,11 +1,11 @@
 import { readFile, writeFile } from 'fs/promises';
 
 export class MessagesRepository {
-  async finOne(id: String): Promise<any> {
-    const contents = await readFile('messages.json', 'utf-8');
+  async finOne(id: string): Promise<any> {
+    const contents = await readFile('messages.json', 'utf8');
     const messages = JSON.parse(contents);
 
-    return messages[1];
+    return messages[id];
   }
 
   async findAll(): Promise<any> {
