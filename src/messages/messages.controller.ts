@@ -11,12 +11,7 @@ import { MessageService } from './messages.service';
 
 @Controller('messages')
 export class MessagesController {
-  messagesService: MessageService;
-
-  constructor() {
-    // DON'T THIS ON PRODUCTION APPS
-    this.messagesService = new MessageService();
-  }
+  constructor(public messagesService: MessageService) {}
 
   @Get()
   getAllMessages(): Promise<void> {
