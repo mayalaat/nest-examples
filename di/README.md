@@ -2,9 +2,9 @@
 
 [NestJS: The Complete Developer's Guide](https://www.udemy.com/course/nestjs-the-complete-developers-guide/) course accompaniment project. Section 6
 
-## Task
+## Workflow
 
-````bash
+```bash
 # Create a new project
 nest new di
 
@@ -23,12 +23,11 @@ nest g s disk
 nest g co computer
 ```
 
-
 ## Installation
 
 ```bash
 $ npm install
-````
+```
 
 ## Running the app
 

@@ -2,6 +2,26 @@
 
 [NestJS: The Complete Developer's Guide](https://www.udemy.com/course/nestjs-the-complete-developers-guide/) course accompaniment project. Section 1 to 5
 
+## Workflow
+
+```bash
+# Create a new project
+nest new messages
+
+# Create a new module
+nest g mo messages
+
+# Create a new controller
+nest g co messages
+```
+
+### Adding validation rules
+
+```bash
+# Adding validation lib
+npm install class-validator class-transformer
+```
+
 ## Installation
 
 ```bash
@@ -32,24 +52,4 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
-```
-
-## Workflow
-
-```bash
-# Create a new project
-nest new messages
-
-# Create a new module
-nest g mo messages
-
-# Create a new controller
-nest g co messages
-```
-
-### Adding validation rules
-
-```bash
-# Adding validation lib
-npm install class-validator class-transformer
 ```
