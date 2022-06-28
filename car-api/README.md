@@ -19,6 +19,14 @@ nest g co reports
 # Create services
 nest g s users
 nest g s reports
+```
+
+## Adding dependencies
+
+```bash
+# TypeORM and Sqlite3
+npm install @nestjs/typeorm typeorm sqlite3
+
 
 ```
 
