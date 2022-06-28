@@ -1,6 +1,6 @@
 ## Description
 
-[NestJS: The Complete Developer's Guide](https://www.udemy.com/course/nestjs-the-complete-developers-guide/) course accompaniment project
+[NestJS: The Complete Developer's Guide](https://www.udemy.com/course/nestjs-the-complete-developers-guide/) course accompaniment project. Section 1 to 5
 
 ## Installation
 
