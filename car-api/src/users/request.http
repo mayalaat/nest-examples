@@ -14,4 +14,12 @@ GET http://localhost:3000/auth/2
 GET http://localhost:3000/auth?email=email@hotmail.com
 
 ### Delete a user a given ID
-DELETE http://localhost:3000/auth/5
+DELETE http://localhost:3000/auth/1
+
+### Update a user
+PATCH http://localhost:3000/auth/2
+Content-Type: application/json
+
+{
+  "email": "myEmail@gmail.com"
+}

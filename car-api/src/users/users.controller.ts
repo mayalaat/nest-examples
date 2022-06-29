@@ -4,12 +4,14 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Query,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('auth')
 export class UsersController {
@@ -33,5 +35,10 @@ export class UsersController {
   @Delete(':id')
   removeUser(@Param('id') id: number): Promise<User> {
     return this.usersService.remove(id);
+  }
+
+  @Patch(':id')
+  updateUser(@Param('id') id: number, @Body() body: UpdateUserDto) {
+    return this.usersService.update(id, body);
   }
 }
