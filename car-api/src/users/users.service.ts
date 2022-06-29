@@ -28,4 +28,14 @@ export class UsersService {
       },
     });
   }
+
+  async update(id: number, attrs: Partial<User>): Promise<User> {
+    const user = await this.findOne(id);
+    if (!user) {
+      throw new Error('User not found');
+    }
+    Object.assign(user, attrs);
+
+    return this.repository.save(user);
+  }
 }
