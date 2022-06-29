@@ -12,4 +12,20 @@ export class UsersService {
 
     return this.repository.save(user);
   }
+
+  findOne(id: number): Promise<User | null> {
+    return this.repository.findOne({
+      where: {
+        id: id,
+      },
+    });
+  }
+
+  find(email: string): Promise<User[]> {
+    return this.repository.find({
+      where: {
+        email: email,
+      },
+    });
+  }
 }
