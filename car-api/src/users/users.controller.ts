@@ -15,6 +15,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from './dto/user.dto';
 
+@Serialize(UserDto)
 @Controller('auth')
 export class UsersController {
   constructor(private usersService: UsersService) {}
@@ -24,7 +25,6 @@ export class UsersController {
     return this.usersService.create(body.email, body.password);
   }
 
-  @Serialize(UserDto)
   @Get(':id')
   findUser(@Param('id') id: number): Promise<User> {
     return this.usersService.findOne(id);
