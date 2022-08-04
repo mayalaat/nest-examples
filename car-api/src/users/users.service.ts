@@ -14,6 +14,9 @@ export class UsersService {
   }
 
   findOne(id: number): Promise<User | null> {
+    if (!id) {
+      return null;
+    }
     return this.repository.findOne({
       where: {
         id: id,
