@@ -2,7 +2,7 @@ import { Test } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
-import { BadRequestException } from '@nestjs/common';
+import { BadRequestException, NotFoundException } from '@nestjs/common';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -64,5 +64,37 @@ describe('AuthService', () => {
     await expect(
       service.signUp('email@mail.com', 'pass'),
     ).rejects.toBeInstanceOf(BadRequestException);
+  });
+
+  it('throws if signIn is called with an unused email', async () => {
+    expect.assertions(1);
+    await expect(service.signIn('asdflkj@asdlfkj.com', 'pass')).rejects.toThrow(
+      NotFoundException,
+    );
+  });
+
+  it('throws if an invalid password is provided', async () => {
+    const fakeUser = { email: 'email@mail.com', password: 'pass' } as User;
+    fakeUsersService.find = () => Promise.resolve([fakeUser]);
+
+    expect.assertions(1);
+    await expect(service.signIn('email@mail.com', 'password')).rejects.toThrow(
+      BadRequestException,
+    );
+  });
+
+  it('returns a user if correct password is provided', async () => {
+    fakeUsersService.find = () =>
+      Promise.resolve([
+        {
+          email: 'email@mail.com',
+          password:
+            '164c937274fdfb43.eef6114c3e7b9e3b367f2449a1c7f3901e0828d87bd7d405d748df7fd736f98a',
+        } as User,
+      ]);
+
+    const user = await service.signIn('email@mail.com', 'pass');
+
+    expect(user).toBeDefined();
   });
 });
