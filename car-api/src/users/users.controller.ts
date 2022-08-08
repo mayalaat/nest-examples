@@ -35,7 +35,7 @@ export class UsersController {
     session.userId = null;
   }
 
-  @Post('signup')
+  @Post('/signup')
   async createUser(
     @Body() body: CreateUserDto,
     @Session() session: any,
